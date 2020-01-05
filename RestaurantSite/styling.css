@@ -1,0 +1,51 @@
+/* Home page styling*/
+#description{
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: left;    
+}
+
+
+
+/* Page navigation links styling*/
+#nav li {
+  display: inline;
+  padding-right: 30px;
+}
+
+
+#nav a:active{
+    text-decoration: none;
+}
+
+#nav a {
+    
+	font-size: 20px;
+	color: blue;
+}
+
+#frontpageBody{
+    
+    background-color: aqua;
+}
+
+#nav a:visited{
+    color: red;
+}
+
+#nav a:link{
+    color: blue;
+}
+#nav a:hover{
+    font-weight: bold;
+}
+
+#jumbotron{
+    
+    background-color: red;
+    color: white;
+    text-decoration: overline;
+    text-align: center;
+    
+}
+

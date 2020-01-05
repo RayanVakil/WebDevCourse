@@ -78,6 +78,7 @@ The table of results includes:
 
 Sample output at end of game
 
+****************************************************************************
 
 RESTAURANT SITE:
 

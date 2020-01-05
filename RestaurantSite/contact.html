@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        
+    
+    <title>Home Page</title>
+     
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        
+        
+        
+         <!-- Bootstrap CSS -->
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        
+        
+<!--        custom css-->
+        <link rel="stylesheet"  href="styling.css">
+        <link rel="stylesheet"  href="restaurantStyles.css">
+        
+        
+        
+        
+    </head>
+    
+    
+    
+    
+    
+<!--    Styling-->
+    <style>
+        
+.form-group{
+    width: 450px;
+    margin: auto;
+}
+        
+label{
+    font-weight: bold;
+}
+    </style>
+    
+    
+    
+    
+    
+    
+        <body>
+            
+            
+<!--            header-->
+            
+            <div class="container">  
+                <div class="row">    
+                    <header id="restName" >
+                    <h1 align="center">Foodies</h1>
+                    </header>
+                </div>
+                
+                
+<!--                Navigation-->
+                
+                <div class="row">    
+                    <nav id="nav"> 
+                        <hr /> 
+                        <ul class="nav nav-pills" id="parent">
+                        <li><a href="index.html" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-home"></span>Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li class="active"><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                        <hr />
+                    </nav>
+                </div>    
+                 
+         
+                <br>
+                
+                
+                
+                
+<!--                Carousel-->
+                
+             <div class="row">        
+                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <p> <center><b>We're opening a new location!
+                      </b></center>
+                            </p>
+                    </div>
+
+                    <div class="item">
+                      <p> <center><b>We're rolling out our seasonal menu, with special options for this season.
+                      </b></center></p>
+                    </div>
+
+                    <div class="item">
+                      <p><center><b>The Drink of the Month is SG Special Brew.
+                      </b></center>
+                            </p>
+                    </div>
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+            </div>     
+
+                 
+                 <br>
+                 
+                 
+                 
+                 
+                 
+            
+<!--            Contact Form-->
+        
+            <div  class="form-group" >
+                <form onsubmit="validateForm(event)"  name="form" class="main-form needs-validation" > 
+                <label>Name: </label> 
+                <input type="text" id= "name" name="name" class="form-control"  />
+                <div id="nameError"></div>
+                   
+                    <br>
+                Email: <input type="text" name="femail" class="form-control" /><br>
+                <label>Phone: </label> 
+                <input type="text" id="phone" name="phone" class="form-control"  />
+                    <div id="phoneError"></div><br>
+                Reason for Inquiry: <select name="reason" class="form-control">
+                <option value="cater">Catering</option>
+                <option value="party">Private Party</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+                </select><br>
+                Additional Information:  
+                <textarea name="descrip" class="form-control"  ></textarea><br>
+                Have you been to the restaurant? 
+                <input type="radio" name="answer" value="YES" />Yes
+                <input type="radio" name="answer" value="NO" checked />No <br> 
+                Best days to contact you:
+                <input type="checkbox" name="" value=""/>M
+                <input type="checkbox" name="" value=""/>T
+                <input type="checkbox" name="" value=""/>W
+                <input type="checkbox" name="" value=""/>Th
+                <input type="checkbox" name="" value=""/>F
+                <br>
+                <br>
+                 <center><button type="submit" name="submit" class="btn btn-primary" >Submit</button></center>
+                </form>
+            </div>
+            </div>    
+            
+                
+                
+                
+<!--               footer -->
+                
+            <div class="row" id="footerholder">
+                <footer id="footer">    
+                  <hr /> 
+                    234 gold rush drive, Tulsa, NY, 14432 <br>
+                    343-423-3435 <br>
+                !THIS WEBSITE WORKS BEST WITH JAVASCRIPT ENABLED!
+                </footer>
+            </div>
+            
+        
+            
+            
+            
+            
+       <!-- Optional JavaScript -->
+       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+       
+            
+            
+            
+       
+<!--            Validate Form-->
+            
+            <script>
+              function validateForm(event) {
+            if (document.getElementById('name').value == '' || document.getElementById('phone').value == '') {
+            document.getElementById('nameError').innerHTML = 'Name field must not be empty';
+            document.getElementById('name').className = 'error';
+             document.getElementById('phoneError').innerHTML = 'Enter a phone number';
+            document.getElementById('phone').className = 'error';    
+            event.preventDefault();
+            return false;
+            }
+        
+            else{
+                alert('Form submitted! Thanks!');
+            }          
+
+            document.getElementById('nameError').innerHTML = '';
+            document.getElementById('name').className = '';
+            document.getElementById('phone').className = '';      
+                  
+      
+            }
+                      
+            </script>
+            
+            
+        </body>
+
+</html>

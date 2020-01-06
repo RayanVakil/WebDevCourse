@@ -1,103 +1,41 @@
-var fin1 = false;
-var fin2 = false;
-var dice1 = 1;
-var dice2 = 1;
-var playAgain = true;
-var isRunning = false;
-
-var betCount = 0;
-var playerMoney = 0;
-
-var maxWin = 0;
-var maxWinIdx = 0;
-
-function playGame(){
-	if(document.getElementById('btn').innerHTML == 'PlayAgain'){
-		document.getElementById('resultID').innerHTML = '';
-		document.getElementById('btn').innerHTML = 'Play: ';
-		document.getElementById('money').value = '';
-	}else{
-		if(document.getElementById('money').value == '' || document.getElementById('money').value <= 0){
-			alert('Please enter a valid bet');
-			return;
-		}
-		if(!isRunning){
-			isRunning = true;
-			if(betCount == 0){
-				playerMoney = document.getElementById('money').value;
-				if(playerMoney == null){
-					playerMoney = 0;
-				}
-				document.getElementById('resultID').innerHTML = '';
-			}
-			if(playerMoney == 0){
-				showResult();
-				return;
-			}
-			dice1 = Math.floor(Math.random() * 6) + 1;
-			dice2 = Math.floor(Math.random() * 6) + 1;
-
-			fin1 = true;
-			fin2 = true;
-			calculateResult();
+function playGame() {
+	var begBet = Number(document.forms["luckySevens"]["begBet"].value);
+	if (begBet <= 0) {
+		alert("Starting bet must be greater than zero.");
+		document.forms["luckySevens"]["begBet"].value = "";
+		document.forms["luckySevens"]["begBet"].focus();
+		return false;
+	}
+	var winArray = [begBet];
+	var rollCounter = 0;
+	for (var gameMoney = begBet; gameMoney >= 1; rollCounter++) {
+		
+		dieOne = Math.ceil(Math.random() * (1 + 6 - 1));		
+		dieTwo = Math.ceil(Math.random() * (1 + 6 - 1));
+		if (Number(dieOne + dieTwo) == 7) {
+			gameMoney += 4;
+			winArray[winArray.length] = gameMoney;
+		} else {
+			gameMoney -= 1;
+			winArray[winArray.length] = gameMoney;
 		}
 	}
-}
-
-function calculateResult(){
-	if(fin1 && fin2){
-		betCount++;
-		fin1 = false;
-		fin2 = false;
-		var sum = dice1 + dice2;
-		var winningScore = '';
-		var losingScore = '';
-		if(sum == 7){
-			playerMoney += 4;
-			maxWin += 4;
-			maxWinIdx = betCount;
-			winningScore = '$4';
-		}else{
-			playerMoney -= 1;
-			losingScore = '$1';
-		}
-		document.getElementById('btn').innerHTML = 'Another bet: ';
-
-		if(playAgain){
-			isRunning = false;
-			playGame();
-		}else{
-			isRunning = false;
+	/* Math.max.apply(null,winArray) does not work correctly for large starting bets (rich players).
+	Using an array at all seems to drain memory once it hits the millions. */
+	var maxWin = 0;
+	for (var indexCounter = 0; indexCounter < winArray.length; indexCounter++) {
+		if (winArray[indexCounter] > maxWin) {
+			maxWin = winArray[indexCounter];
 		}
 	}
-}
-
-function showResult(){
-
-
-	var table="<table class='table table-striped'>"+
-		"<thead><tr align='center'>"+
-		"<th colspan='2'> <h3 id='title'>Results</h3> </th>"+
-		"</tr></thead>"+
-		"<tbody><tr>"+
-		"<td align='left' style='width:70%;'>Starting Bet: </td><td>"+document.getElementById("money").value+"</td>"+
-		"</tr>"+
-		"<tr>"+
-		"<td align='left'>Total rolls before going broke: </td><td>"+betCount+"</td>"+
-		"</tr>"+
-		"<tr>"+
-		"<td align='left'>Highest amount won: </td><td>"+maxWin+"</td>"+
-		"</tr>"+
-		"<tr>"+
-		"<td align='left'>Roll count at Highest amount won: </td><td>"+maxWinIdx+"</td>"+
-		"</tr></body>"+
-		"</table>";
-	document.getElementById("resultID").innerHTML=table;
-
-
-	document.getElementById('btn').innerHTML = 'PlayAgain';
-	betCount = 0;
-	maxWin = 0;
-	maxWinIdx = 0;
-	isRunning = false;
+	document.getElementById("results").style.display = "block";
+	
+	document.getElementById("startBet").innerText = ("$" + begBet.toFixed(2));
+	document.getElementById("totalRolls").innerText = rollCounter;
+	document.getElementById("highAmount").innerText = ("$" + maxWin.toFixed(2));
+	document.getElementById("highRollCount").innerText = winArray.indexOf(maxWin);
+	document.getElementById("submitButton").innerText = "Play Again";
+	document.forms["luckySevens"]["begBet"].focus();
+	
+	return false;
 }
